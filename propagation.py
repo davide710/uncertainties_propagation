@@ -1,5 +1,8 @@
 import numpy as np
 
+#TODO: support for pandas dataframe
+#TODO: support for not having uncertainty on all values
+
 def propagate(X, errors, f):
     """
     X is of shape (n, m), n datapoints, m variables
@@ -11,7 +14,7 @@ def propagate(X, errors, f):
     y = np.array([f(X[i, :]) for i in range(n)])
     sigma_y = np.zeros_like(y)
 
-    for j in range(X.shape[0]):
+    for j in range(m):
         e_j = np.zeros(m)
         e_j[j] = 1
 
@@ -32,4 +35,7 @@ def propagate(X, errors, f):
 
 
 f = lambda x: x[0] + x[1]
-propagate([[1, 2], [3, 4]], [[0.1, 0.1], [0.1, 0.1]], f)
+propagate([[1, 2], [3, 4], [8, 5]], [[0.1, 0.1], [0.1, 0.1], [0.1, 0.1]], f)
+
+#f = lambda x: x**2
+#propagate([[1], [3], [8]], [[0.1], [0.1], [0.1]], f)
