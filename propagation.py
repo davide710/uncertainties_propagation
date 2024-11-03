@@ -29,13 +29,11 @@ def propagate(X, errors, f):
     
     sigma_y = np.sqrt(sigma_y)
 
-    print(y)
-    print(sigma_y)
-    
+    return y, sigma_y    
 
 
-f = lambda x: x[0] + x[1]
-propagate([[1, 2], [3, 4], [8, 5]], [[0.1, 0.1], [0.1, 0.1], [0.1, 0.1]], f)
+#f = lambda x: x[0] + x[1]
+#propagate([[1, 2], [3, 4], [8, 5]], [[0.1, 0.1], [0.1, 0.1], [0.1, 0.1]], f)
 
 #f = lambda x: x**2
 #propagate([[1], [3], [8]], [[0.1], [0.1], [0.1]], f)
